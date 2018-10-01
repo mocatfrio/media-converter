@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Upload - Media Converter{% endblock %}
+
+{% block body %}
+  <ul class="nav nav-tabs mb-3">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#image">Image</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#audio">Audio</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#video">Video</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <!-- Image -->
+    <div class="tab-pane fade show active" id="image">
+      <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <div class="custom-file">
+            <label for="file" class="custom-file-label">Choose file</label>
+            <input type="file" name="file" class="custom-file-input" id="file" accept="image/*" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="format">Format</label>
+          <select name="format" class="custom-select" id="format">
+            <option value="jpg">JPG</option>
+            <option value="png">PNG</option>
+          </select>
+        </div>
+        <div class="form-group">
+          Option lainnya taruh sini...
+        </div>
+        <input type="hidden" name="filetype" value="image">
+        <button type="submit" class="btn btn-primary">Convert</button>
+      </form>
+    </div>
+
+    <!-- Audio -->
+    <div class="tab-pane fade show" id="audio">
+      <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <div class="custom-file">
+            <label for="file" class="custom-file-label">Choose file</label>
+            <input type="file" name="file" class="custom-file-input" id="file" accept="audio/*" required>
+          </div>
+        </div>
+        <div class="form-group">
+          Option lainnya taruh sini...
+        </div>
+        <input type="hidden" name="filetype" value="audio">
+        <button type="submit" class="btn btn-primary">Convert</button>
+      </form>
+    </div>
+
+    <!-- Video -->
+    <div class="tab-pane fade show" id="video">
+      <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <div class="custom-file">
+            <label for="file" class="custom-file-label">Choose file</label>
+            <input type="file" name="file" class="custom-file-input" id="file" accept="video/*" required>
+          </div>
+        </div>
+        <div class="form-group">
+          Option lainnya taruh sini...
+        </div>
+        <input type="hidden" name="filetype" value="video">
+        <button type="submit" class="btn btn-primary">Convert</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
