@@ -33,7 +33,22 @@
           </select>
         </div>
         <div class="form-group">
-          Option lainnya taruh sini...
+          <label for="depth">Color Depth</label>
+          <select name="depth" class="custom-select" id="depth">
+            <option value="1">1-Bit (Black White)</option>
+            <option value="L">8-bit (Greyscale)</option>
+            <option value="RGB">24-bit (RGB Truecolor)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="res">Resolution</label>
+          <input name="res" id="res" type="range" min="0" max="200" step="10" list="tickmarks" class="form-control-range">
+          <div style="display:flex;"><div style="text-align:left;width:50%;">0%</div><div style="text-align:right;width:50%">200%</div></div>
+          <datalist id="tickmarks">
+          <option value="0" label="0%">
+          <option value="100" label="100%">
+          <option value="200" label="200%">
+        </datalist>
         </div>
         <input type="hidden" name="filetype" value="image">
         <button type="submit" class="btn btn-primary">Convert</button>

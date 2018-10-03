@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, send_from_directory, flash, url_for
+from PIL import Image
 import os
 
 UPLOAD_FOLDER = 'uploaded_files'
@@ -7,7 +8,24 @@ app = Flask(__name__)
 app.secret_key = os.urandom(16)
 
 def convert_image(filename, options):
-    pass
+  #load image
+  print os.path.join(UPLOAD_FOLDER, filename)
+  im = Image.open(os.path.join(UPLOAD_FOLDER, filename))
+  print "bug"
+  #change depth
+  im = im.convert(options['depth'])
+  print "bug"
+  #resize
+  width, height = im.size
+  width = int(width*int(options['res'])/100)  
+  height = int(height*int(options['res'])/100)
+  im = im.resize((width,height), Image.NEAREST)
+  print "bug"
+  #reformat
+  output ="out_"+filename.split(".")[0]+"."+options['format']
+  im.save(os.path.join(UPLOAD_FOLDER, output))
+  print "bug"
+  return output
 
 def convert_audio(filename, options):
     pass
@@ -30,14 +48,15 @@ def upload():
         filetype = request.form['filetype']
         file.save(os.path.join(UPLOAD_FOLDER, file.filename))
 
+        #return nama file baru
         if filetype == 'image':
-            convert_image(file.filename, request.form)
+            output = convert_image(file.filename, request.form)
         elif filetype == 'audio':
-            convert_audio(file.filename, request.form)
+            output = convert_audio(file.filename, request.form)
         elif filetype == 'video':
-            convert_video(file.filename, request.form)
+            output = convert_video(file.filename, request.form)
 
-        return redirect(url_for('download', filename=file.filename))
+        return redirect(url_for('download', filename=output))
     except:
         flash('Cannot convert file.', 'error')
         return redirect(url_for('index'))
