@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, send_from_directory, flash, url_for
 from PIL import Image
 import os
+import pydub
 
 UPLOAD_FOLDER = 'uploaded_files'
 
@@ -8,27 +9,41 @@ app = Flask(__name__)
 app.secret_key = os.urandom(16)
 
 def convert_image(filename, options):
-  #load image
-  print os.path.join(UPLOAD_FOLDER, filename)
-  im = Image.open(os.path.join(UPLOAD_FOLDER, filename))
-  print "bug"
-  #change depth
-  im = im.convert(options['depth'])
-  print "bug"
-  #resize
-  width, height = im.size
-  width = int(width*int(options['res'])/100)  
-  height = int(height*int(options['res'])/100)
-  im = im.resize((width,height), Image.NEAREST)
-  print "bug"
-  #reformat
-  output ="out_"+filename.split(".")[0]+"."+options['format']
-  im.save(os.path.join(UPLOAD_FOLDER, output))
-  print "bug"
-  return output
+    #load image
+    print os.path.join(UPLOAD_FOLDER, filename)
+    im = Image.open(os.path.join(UPLOAD_FOLDER, filename))
+    print "bug"
+    #change depth
+    im = im.convert(options['depth'])
+    print "bug"
+    #resize
+    width, height = im.size
+    width = int(width*int(options['res'])/100)  
+    height = int(height*int(options['res'])/100)
+    im = im.resize((width,height), Image.NEAREST)
+    print "bug"
+    #reformat
+    output ="out_"+filename.split(".")[0]+"."+options['format']
+    im.save(os.path.join(UPLOAD_FOLDER, output))
+    print "bug"
+    return output
 
 def convert_audio(filename, options):
-    pass
+    #load_audio_files
+    the_file = os.path.join(UPLOAD_FOLDER, filename)
+    #get_extention
+    ext = filename.split(".")[1]
+    #define_segment
+    sound = pydub.AudioSegment.from_file(the_file, ext)
+    #define_new_name
+    output = "output_" + os.path.splitext(filename)[0] + "."+options['format']
+    #define_path_to_save
+    new_path = os.path.join(UPLOAD_FOLDER, output)
+    #change_format, audio_sample_rate, channel, bitrate
+    saved = sound.export(new_path, format=options['format'], bitrate=options['bitrate'], parameters=["-ac", options['channel'], "-ar", options['samplerate']])
+    #delete_old_files
+    os.remove(the_file)
+    return output
 
 def convert_video(filename, options):
     pass
