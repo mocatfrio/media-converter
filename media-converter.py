@@ -25,6 +25,7 @@ def convert_image(filename, options):
   output ="out_"+filename.split(".")[0]+"."+options['format']
   im.save(os.path.join(UPLOAD_FOLDER, output))
   print "bug"
+  return output
 
 def convert_audio(filename, options):
     pass
@@ -47,14 +48,15 @@ def upload():
         filetype = request.form['filetype']
         file.save(os.path.join(UPLOAD_FOLDER, file.filename))
 
+        #return nama file baru
         if filetype == 'image':
-            convert_image(file.filename, request.form)
+            output = convert_image(file.filename, request.form)
         elif filetype == 'audio':
-            convert_audio(file.filename, request.form)
+            output = convert_audio(file.filename, request.form)
         elif filetype == 'video':
-            convert_video(file.filename, request.form)
+            output = convert_video(file.filename, request.form)
 
-        return redirect(url_for('download', filename=file.filename))
+        return redirect(url_for('download', filename=output))
     except:
         flash('Cannot convert file.', 'error')
         return redirect(url_for('index'))
