@@ -111,7 +111,55 @@
           </div>
         </div>
         <div class="form-group">
-          Option lainnya taruh sini...
+          <label for="format">Format</label>
+          <select name="format" class="custom-select" id="format-video">
+            <option value="wmv">WMV</option>
+            <option value="wav">MP4</option>
+            <option value="avi">AVI</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="framesize">Frame Size</label>
+          <select name="framesize" class="custom-select" id="framesize-video">
+            <option value="wmv">WMV</option>
+            <option value="wav">MP4</option>
+            <option value="wav">FFMPEG</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="bitrate">Bitrate</label>
+          <select name="bitrate" class="custom-select" id="bitrate-video">
+            <option value="64k">64 kbps</option>
+            <option value="128k">128 kbps</option>
+            <option value="192k">192 kbps</option>
+            <option value="256k">256 kbps</option>
+            <option value="320k">320 kbps</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="framerate">Frame Rate</label>
+          <select name="framerate" class="custom-select" id="framerate-video">
+            <option value="64k">64 kbps</option>
+            <option value="128k">128 kbps</option>
+            <option value="192k">192 kbps</option>
+            <option value="256k">256 kbps</option>
+            <option value="320k">320 kbps</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="channel">Channel</label>
+          <select name="channel" class="custom-select" id="channel-video">
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="samplerate">Audio Sample Rate</label>
+          <select name="samplerate" class="custom-select" id="samplerate-video">
+            <option value="32000">32 KHz</option>
+            <option value="44100">44 KHz</option>
+            <option value="48000">48 KHz</option>
+          </select>
         </div>
         <input type="hidden" name="filetype" value="video">
         <button type="submit" class="btn btn-primary">Convert</button>

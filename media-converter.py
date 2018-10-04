@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, send_from_directory
 from PIL import Image
 import os
 import pydub
+import ffmpy
 
 UPLOAD_FOLDER = 'uploaded_files'
 
@@ -23,7 +24,7 @@ def convert_image(filename, options):
     im = im.resize((width,height), Image.NEAREST)
     print "bug"
     #reformat
-    output ="out_"+filename.split(".")[0]+"."+options['format']
+    output = "out_" + filename.split(".")[0] + "." + options['format']
     im.save(os.path.join(UPLOAD_FOLDER, output))
     print "bug"
     return output
@@ -36,7 +37,7 @@ def convert_audio(filename, options):
     #define_segment
     sound = pydub.AudioSegment.from_file(the_file, ext)
     #define_new_name
-    output = "output_" + os.path.splitext(filename)[0] + "."+options['format']
+    output = "output_" + os.path.splitext(filename)[0] + "." + options['format']
     #define_path_to_save
     new_path = os.path.join(UPLOAD_FOLDER, output)
     #change_format, audio_sample_rate, channel, bitrate
@@ -46,7 +47,20 @@ def convert_audio(filename, options):
     return output
 
 def convert_video(filename, options):
-    pass
+    #load video files
+    input_file = os.path.join(UPLOAD_FOLDER, filename)
+    #define output name
+    output_name = "converted_" + filename.split(".")[0] + "." + options['format']
+    #define path to save
+    output_file = os.path.join(UPLOAD_FOLDER, output_name)
+    #converting
+    ff = ffmpy.FFmpeg (
+      inputs = {input_file: None},
+      outputs = {output_name: None}
+    )
+    ff.run()
+    os.rename(output_name, output_file)
+    return output_name
 
 @app.route('/')
 def index():
