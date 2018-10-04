@@ -1,39 +1,45 @@
-# Multimedia Networking
+### Multimedia Networking Project I
+# Media Converter Web Application Using Python
 
-### Media Converter Using Python
+By Group 3:
+* 5115100043 - Hafara Firdausi
+* 5115100069 - Pius Pambudi
+* 5115100070 - Ahmad Burhanuddin Utomo
+* 5115100117 - Cahya Putra Hikmawan
 
-#### How to Deploy?
-1. Install Flask
-```sh
-pip install flask
-```
-for windows, Download
+#### How to Deploy
+1. Install Flask (in Linux environment)
+    ```sh
+    pip install flask
+    ```
+    p.s. You can using **virtualenv**
 
-2. Install Python Library for Audio Converter
+2. Install Python Library for Image Converter
+    * Install **image**
+      ```sh
+      pip install image
+      ```
+3. Install Python Library for Audio Converter
+    * Install **pydub**
+      ```sh
+      pip install pydub
+      ```
+    * Install **pydub dependency (ffmpeg & libavcodec-extra)**
+      ```sh
+      sudo apt-get install ffmpeg libavcodec-extra
+      ```
+4. Set Flask APP and Flask ENV
+    ```sh
+    export FLASK_APP=media-converter.py
+    export FLASK_ENV=development
+    ```
 
-- Install **pydub**
-```sh
-pip install pydub
-```
-
-- Install **pydub dependency (ffmpeg & libavcodec-extra)**
-```sh
-sudo apt-get install ffmpeg libavcodec-extra
-```
-
-3. Set Flask APP and Flask ENV
-```sh
-export FLASK_APP=media-converter.py
-export FLASK_ENV=development
-```
-
-for windows
-```sh
-set FLASK_APP=media-converter.py
-set FLASK_ENV=development
-```
-
-4. Run!
-```sh
-flask run
-```
+    for windows
+    ```sh
+    set FLASK_APP=media-converter.py
+    set FLASK_ENV=development
+    ```
+5. Run!
+    ```sh
+    flask run
+    ```
