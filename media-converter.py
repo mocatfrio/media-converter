@@ -56,9 +56,10 @@ def convert_video(filename, options):
     #converting
     ff = ffmpy.FFmpeg (
       inputs = {input_file: None},
-      outputs = {output_name: None}
+      outputs = {output_name: '-vf "scale=' + options['framesize'] + ', setdar=' + options['aspect-ratio'] + '" -r ' + options['framerate'] + ' -b:v ' + options['bitrate'] + ' -ac ' + options['channel'] + ' -ar ' + options['samplerate']}
     )
     ff.run()
+    #move the converted files into uploaded folder
     os.rename(output_name, output_file)
     return output_name
 

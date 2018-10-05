@@ -28,7 +28,12 @@ By Group 3:
       ```sh
       sudo apt-get install ffmpeg libavcodec-extra
       ```
-4. Set Flask APP and Flask ENV
+4. Install Python Library for Video Converter
+    * Install **ffmpy**
+      ```sh
+      pip install ffmpy
+      ```
+5. Set Flask APP and Flask ENV
     ```sh
     export FLASK_APP=media-converter.py
     export FLASK_ENV=development
@@ -39,7 +44,7 @@ By Group 3:
     set FLASK_APP=media-converter.py
     set FLASK_ENV=development
     ```
-5. Run!
+6. Run!
     ```sh
     flask run
     ```

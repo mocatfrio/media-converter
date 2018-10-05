@@ -1,2 +1,4 @@
 *.pyc
 uploaded_files/*
+.vscode/*
+daus/*

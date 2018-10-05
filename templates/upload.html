@@ -113,49 +113,99 @@
         <div class="form-group">
           <label for="format">Format</label>
           <select name="format" class="custom-select" id="format-video">
+            <option label="-- Pilih Format --"></option>
+            <option value="mp4">MP4</option>
             <option value="wmv">WMV</option>
-            <option value="wav">MP4</option>
+            <option value="mov">MOV</option>
             <option value="avi">AVI</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="framesize">Frame Size</label>
-          <select name="framesize" class="custom-select" id="framesize-video">
-            <option value="wmv">WMV</option>
-            <option value="wav">MP4</option>
-            <option value="wav">FFMPEG</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="bitrate">Bitrate</label>
-          <select name="bitrate" class="custom-select" id="bitrate-video">
-            <option value="64k">64 kbps</option>
-            <option value="128k">128 kbps</option>
-            <option value="192k">192 kbps</option>
-            <option value="256k">256 kbps</option>
-            <option value="320k">320 kbps</option>
+            <option value="mpeg">MPEG</option>
+            <!-- <option value="3gp">3GP</option> -->
           </select>
         </div>
         <div class="form-group">
           <label for="framerate">Frame Rate</label>
           <select name="framerate" class="custom-select" id="framerate-video">
+            <option label="-- Pilih Frame Rate --"></option>
+            <option value="10">10 fps</option>
+            <option value="23.976">24 fps <i>(standard frame rate)</i></option>
+            <option value="25">25 fps <i>(standard PAL, SECAM)</i></option>
+            <option value="29.97">30 fps <i>(standard NTSC)</i></option>
+            <option value="50">50 fps</option>
+            <option value="60">60 fps</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="framesize">Frame Size (Resolusi)</label>
+          <select name="framesize" class="custom-select" id="framesize-video">
+            <option label="-- Pilih Frame Size --"></option>
+            <option value="320:240">320 x 240 piksel</option>
+            <option value="640:480">640 x 480 piksel</option>
+            <option value="960:720">960 x 720 piksel</option>
+            <option value="1280:1080">1280 x 1080 piksel</option>
+            <option value="1440:1080">1440 x 1080 piksel</option>
+            <optgroup label="Standard Youtube">
+              <option value="426:240">426 x 240 piksel <i>(240p)</i></option>
+              <option value="640:360">640 x 360 piksel <i>(360p)</i></option>
+              <option value="854:480">854 x 480 piksel <i>(480p)</i></option>
+              <option value="1280:720">1280 x 720 piksel <i>(720p)</i></option>
+              <option value="1920:1080">1920 x 1080 piksel <i>(1080p)</i></option>
+              <option value="2560:1440">2560 x 1440 piksel <i>(1440p (2K))</i></option>
+              <option value="3840:2160">3840 x 2160 piksel <i>(2160p (4K))</i></option>
+            </optgroup>
+            <optgroup label="Standard NTSC">
+              <option value="352:240">352 x 240 piksel</option>
+              <option value="352:480">352 x 480 piksel</option>
+              <option value="704:480">704 x 480 piksel</option>
+              <option value="720:480">720 x 480 piksel</option>
+            </optgroup>
+            <optgroup label="Standard PAL">
+              <option value="352:288">352 x 288 piksel</option>
+              <option value="352:576">352 x 576 piksel</option>
+              <option value="704:576">704 x 576 piksel</option>
+              <option value="720:576">720 x 576 piksel</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="form-group">
+            <label for="aspect-ratio">Aspect Ratio</label>
+            <select name="aspect-ratio" class="custom-select" id="aspect-ratio-video">
+              <option label="-- Pilih Aspect Ratio --"></option>
+              <option value="3:4">3 : 4</option>
+              <option value="4:3">4 : 3</option>
+              <option value="5:3">5 : 3</option>
+              <option value="5:4">5 : 4</option>
+              <option value="11:5">11 : 5</option>
+              <option value="16:9">16 : 9</option>
+              <option value="16:10">16 : 10</option>
+              <option value="17:10">17 : 10</option>
+            </select>
+          </div>
+        <div class="form-group">
+          <label for="bitrate">Bitrate</label>
+          <select name="bitrate" class="custom-select" id="bitrate-video">
+            <option label="-- Pilih Bitrate --"></option>
             <option value="64k">64 kbps</option>
             <option value="128k">128 kbps</option>
-            <option value="192k">192 kbps</option>
-            <option value="256k">256 kbps</option>
-            <option value="320k">320 kbps</option>
+            <option value="1M">1 Mbps <i>(recommended for 360p)</i></option>            
+            <option value="2.5M">2.5 Mbps <i>(recommended for 480p)</i></option>
+            <option value="5M">5 Mbps <i>(recommended for 720p)</i></option>
+            <option value="8M">8 Mbps <i>(recommended for 1080p)</i></option>
+            <option value="10M">10 Mbps</option>
+            <option value="16M">16 Mbps <i>(recommended for 1440p)</i></option>
           </select>
         </div>
         <div class="form-group">
           <label for="channel">Channel</label>
           <select name="channel" class="custom-select" id="channel-video">
-            <option value="1">1</option>
-            <option value="2">2</option>
+            <option label="-- Pilih Channel --"></option>
+            <option value="1">Mono</option>
+            <option value="2">Stereo</option>
           </select>
         </div>
         <div class="form-group">
           <label for="samplerate">Audio Sample Rate</label>
           <select name="samplerate" class="custom-select" id="samplerate-video">
+            <option label="-- Pilih Audio Sample Rate --"></option>
             <option value="32000">32 KHz</option>
             <option value="44100">44 KHz</option>
             <option value="48000">48 KHz</option>
