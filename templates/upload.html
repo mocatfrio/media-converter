@@ -29,7 +29,19 @@
           <label for="format">Format</label>
           <select name="format" class="custom-select" id="format">
             <option value="jpg">JPG</option>
+            <option value="jpeg">JPEG</option>
             <option value="png">PNG</option>
+            <option value="gif">GIF</option>
+            <option value="ico">ICO</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="sampling">Sampling Method</label>
+          <select name="sampling" class="custom-select" id="sampling">
+            <option value="NEAREST">Nearest</option>
+            <option value="BILINEAR">Bilinear</option>
+            <option value="BICUBIC">Bicubic</option>
+            <option value="ANTIALIAS">Anti Alias</option>
           </select>
         </div>
         <div class="form-group">
@@ -45,10 +57,15 @@
           <input name="res" id="res" type="range" min="0" max="200" step="10" list="tickmarks" class="form-control-range">
           <div style="display:flex;"><div style="text-align:left;width:50%;">0%</div><div style="text-align:right;width:50%">200%</div></div>
           <datalist id="tickmarks">
-          <option value="0" label="0%">
-          <option value="100" label="100%">
-          <option value="200" label="200%">
-        </datalist>
+            <option value="0" label="0%">
+            <option value="100" label="100%">
+            <option value="200" label="200%">
+          </datalist>
+        </div>
+        <div class="form-group">
+          <label for="resx">Resolution in Pixel(leave empty if undesired)</label>
+          <input type="text" class="form-control" name="resx" id="resx" placeholder="width">
+          <input type="text" class="form-control" name="resy" id="resy" placeholder="height">
         </div>
         <input type="hidden" name="filetype" value="image">
         <button type="submit" class="btn btn-primary">Convert</button>

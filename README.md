@@ -15,9 +15,9 @@ By Group 3:
     p.s. You can using **virtualenv**
 
 2. Install Python Library for Image Converter
-    * Install **image**
+    * Install **pillow**
       ```sh
-      pip install image
+      pip install pillow
       ```
 3. Install Python Library for Audio Converter
     * Install **pydub**

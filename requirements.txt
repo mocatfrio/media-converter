@@ -7,3 +7,4 @@ MarkupSafe==1.0
 Werkzeug==0.14.1
 Pydub==0.23.0
 ffmpy==0.2.2
+pillow==5.3.0

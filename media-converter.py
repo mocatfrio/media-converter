@@ -11,22 +11,37 @@ app.secret_key = os.urandom(16)
 
 def convert_image(filename, options):
     #load image
-    print os.path.join(UPLOAD_FOLDER, filename)
+    #print os.path.join(UPLOAD_FOLDER, filename)
     im = Image.open(os.path.join(UPLOAD_FOLDER, filename))
-    print "bug"
+    #print "bug"
     #change depth
     im = im.convert(options['depth'])
-    print "bug"
+    #print "bug"
     #resize
     width, height = im.size
     width = int(width*int(options['res'])/100)  
     height = int(height*int(options['res'])/100)
-    im = im.resize((width,height), Image.NEAREST)
-    print "bug"
+    if options['resx'] and options['resx']:
+        width = int(options['resx'])
+        height = int(options['resy'])
+    sampling = str(options['sampling'])
+    if sampling=="NEAREST":
+        im = im.resize((width,height), Image.NEAREST)
+    elif sampling=="BILINEAR":
+        im = im.resize((width,height), Image.BILINEAR)
+    elif sampling=="BICUBIC":
+        im = im.resize((width,height), Image.BICUBIC)
+    elif sampling=="ANTIALIAS":
+        im = im.resize((width,height), Image.ANTIALIAS)
+    #print "bug"
     #reformat
     output = "out_" + filename.split(".")[0] + "." + options['format']
-    im.save(os.path.join(UPLOAD_FOLDER, output))
-    print "bug"
+    if options['format']=="ico":
+        size = [(width, height)]
+        im.save(os.path.join(UPLOAD_FOLDER, output), sizes=size)
+    else:
+        im.save(os.path.join(UPLOAD_FOLDER, output))
+    #print "bug"
     return output
 
 def convert_audio(filename, options):
