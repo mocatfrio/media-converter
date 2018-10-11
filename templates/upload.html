@@ -28,6 +28,7 @@
         <div class="form-group">
           <label for="format">Format</label>
           <select name="format" class="custom-select" id="format">
+            <option label="Choose Format"></option>
             <option value="jpg">JPG</option>
             <option value="jpeg">JPEG</option>
             <option value="png">PNG</option>
@@ -38,6 +39,7 @@
         <div class="form-group">
           <label for="sampling">Sampling Method</label>
           <select name="sampling" class="custom-select" id="sampling">
+            <option label="Choose Sampling Method"></option>
             <option value="NEAREST">Nearest</option>
             <option value="BILINEAR">Bilinear</option>
             <option value="BICUBIC">Bicubic</option>
@@ -47,6 +49,7 @@
         <div class="form-group">
           <label for="depth">Color Depth</label>
           <select name="depth" class="custom-select" id="depth">
+            <option label="Choose Color Depth"></option>
             <option value="1">1-Bit (Black White)</option>
             <option value="L">8-bit (Greyscale)</option>
             <option value="RGB">24-bit (RGB Truecolor)</option>
@@ -63,9 +66,9 @@
           </datalist>
         </div>
         <div class="form-group">
-          <label for="resx">Resolution in Pixel(leave empty if undesired)</label>
-          <input type="text" class="form-control" name="resx" id="resx" placeholder="width">
-          <input type="text" class="form-control" name="resy" id="resy" placeholder="height">
+          <label for="resx">Resolution in Pixel (leave empty if undesired)</label>
+          <input type="text" class="form-control" name="resx" id="resx" placeholder="Width">
+          <input type="text" class="form-control" name="resy" id="resy" placeholder="Height">
         </div>
         <input type="hidden" name="filetype" value="image">
         <button type="submit" class="btn btn-primary">Convert</button>
@@ -91,6 +94,7 @@
         <div class="form-group">
           <label for="bitrate">Bitrate</label>
           <select name="bitrate" class="custom-select" id="bitrate">
+            <option label="Choose Bitrate"></option>
             <option value="64k">64 kbps</option>
             <option value="128k">128 kbps</option>
             <option value="192k">192 kbps</option>
@@ -101,14 +105,16 @@
         <div class="form-group">
           <label for="samplerate">Sample Rate</label>
           <select name="samplerate" class="custom-select" id="samplerate">
+            <option label="Choose Sample Rate"></option>
             <option value="32000">32 KHz</option>
             <option value="44100">44 KHz</option>
             <option value="48000">48 KHz</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="channel">Channels</label>
+          <label for="channel">Channel</label>
           <select name="channel" class="custom-select" id="channel">
+            <option label="Choose Channel"></option>
             <option value="1">1</option>
             <option value="2">2</option>
           </select>
@@ -130,7 +136,7 @@
         <div class="form-group">
           <label for="format">Format</label>
           <select name="format" class="custom-select" id="format-video">
-            <option label="-- Choose Format --"></option>
+            <option label="Choose Format"></option>
             <option value="mp4">MP4</option>
             <option value="wmv">WMV</option>
             <option value="mov">MOV</option>
@@ -142,7 +148,7 @@
         <div class="form-group">
           <label for="framerate">Frame Rate</label>
           <select name="framerate" class="custom-select" id="framerate-video">
-            <option label="-- Choose Frame Rate --"></option>
+            <option label="Choose Frame Rate"></option>
             <option value="10">10 fps</option>
             <option value="23.976">24 fps <i>(frame rate standard)</i></option>
             <option value="25">25 fps <i>(PAL & SECAM standard)</i></option>
@@ -152,9 +158,9 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="framesize">Frame Size (Resolusi)</label>
+          <label for="framesize">Frame Size (Resolution)</label>
           <select name="framesize" class="custom-select" id="framesize-video">
-            <option label="-- Choose Frame Size --"></option>
+            <option label="Choose Frame Size"></option>
             <option value="320:240">320 x 240 piksel</option>
             <option value="640:480">640 x 480 piksel</option>
             <option value="960:720">960 x 720 piksel</option>
@@ -186,7 +192,7 @@
         <div class="form-group">
             <label for="aspect-ratio">Aspect Ratio</label>
             <select name="aspect-ratio" class="custom-select" id="aspect-ratio-video">
-              <option label="-- Choose Aspect Ratio --"></option>
+              <option label="Choose Aspect Ratio"></option>
               <option value="3:4">3 : 4</option>
               <option value="4:3">4 : 3</option>
               <option value="5:3">5 : 3</option>
@@ -200,7 +206,7 @@
         <div class="form-group">
           <label for="bitrate">Bitrate</label>
           <select name="bitrate" class="custom-select" id="bitrate-video">
-            <option label="-- Choose Bitrate --"></option>
+            <option label="Choose Bitrate"></option>
             <option value="64k">64 kbps</option>
             <option value="128k">128 kbps</option>
             <option value="1M">1 Mbps <i>(recommended for 360p)</i></option>            
@@ -214,7 +220,7 @@
         <div class="form-group">
           <label for="channel">Channel</label>
           <select name="channel" class="custom-select" id="channel-video">
-            <option label="-- Choose Channel --"></option>
+            <option label="Choose Channel"></option>
             <option value="1">Mono</option>
             <option value="2">Stereo</option>
           </select>
@@ -222,7 +228,7 @@
         <div class="form-group">
           <label for="samplerate">Audio Sample Rate</label>
           <select name="samplerate" class="custom-select" id="samplerate-video">
-            <option label="-- Choose Audio Sample Rate --"></option>
+            <option label="Choose Audio Sample Rate"></option>
             <option value="32000">32 KHz</option>
             <option value="44100">44 KHz</option>
             <option value="48000">48 KHz</option>
@@ -233,4 +239,8 @@
       </form>
     </div>
   </div>
+{% endblock %}
+
+{% block script %}
+
 {% endblock %}
